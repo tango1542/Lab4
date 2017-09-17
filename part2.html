@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Part 2</title>
+
+  <style>
+
+    #canvas {
+      border: 1px black solid;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<canvas id="canvas" height="600" width="1000"></canvas>
+
+<script>
+
+// Drawing two rectangles
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext("2d");
+  context.fillStyle="#7DAD67";
+  context.fillRect(800, 40, 100, 100);
+  context.strokeRect(800, 160, 100, 100);
+
+// 5 lines next to each other
+  context.moveTo(100, 200);
+  context.lineTo(400, 500);
+  context.stroke();
+  context.moveTo(100, 205);
+  context.lineTo(400, 505);
+  context.stroke();
+  context.moveTo(100, 210);
+  context.lineTo(400, 510);
+  context.stroke();
+  context.moveTo(100, 215);
+  context.lineTo(400, 515);
+  context.stroke();
+  context.moveTo(100, 220);
+  context.lineTo(400, 520);
+  context.stroke();
+  context.moveTo(100, 225);
+  context.lineTo(400, 525);
+  context.stroke();
+  context.moveTo(100, 230);
+  context.lineTo(400, 530);
+  context.stroke();
+  context.moveTo(100, 235);
+  context.lineTo(400, 535);
+  context.stroke();
+  context.moveTo(100, 240);
+  context.lineTo(400, 540);
+  context.stroke();
+
+// 3d box design
+  context.moveTo(400, 300);
+  context.lineTo(400, 200);
+  context.lineTo(500, 200);
+  context.lineTo(500, 300);
+  context.lineTo(400, 300);
+  context.stroke();
+
+  context.moveTo(375, 275);
+  context.lineTo(375, 175);
+  context.lineTo(475, 175);
+  context.lineTo(475, 275);
+  context.lineTo(375, 275);
+  context.stroke();
+
+  context.moveTo(375, 275);
+  context.lineTo(400, 300);
+  context.stroke();
+
+  context.moveTo(375, 175);
+  context.lineTo(400, 200);
+  context.stroke();
+
+  context.moveTo(475, 175);
+  context.lineTo(500, 200);
+  context.stroke();
+
+  context.moveTo(475, 275);
+  context.lineTo(500, 300);
+  context.stroke();
+
+
+// circles
+
+  context.beginPath();
+  context.arc(600, 400, 50, 0, 2 * Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(600, 400, 60, 0, 2 * Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(600, 400, 70, 0, 2 * Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(600, 400, 80, 0, 2 * Math.PI);
+  context.stroke();
+  context.beginPath();
+  context.arc(600, 400, 90, 0, 2 * Math.PI);
+  context.stroke();
+
+  context.font="35px Arial";
+  context.fillStyle = "#0000FF";
+  context.fillText("Hello World", 150, 150);
+  context.font="35px Arial";
+  context.fillStyle = "#00FFFF";
+  context.fillText("Hello World", 175, 125);
+  context.font="35px Arial";
+  context.fillStyle = "#FFFF00";
+  context.fillText("Hello World", 200, 100);
+
+
+
+
+
+</script>
+
+</body>
+</html>

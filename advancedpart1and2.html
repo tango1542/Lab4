@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map Game with Google Maps</title>
+
+  <style>
+    #map {
+      height: 800px;
+      width: 1000px;
+    }
+  </style>
+
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVHRfP2CNHxDRWT7tWMgYBXm7ns-hQLB8&callback=initMap">
+  </script>
+
+  <script>
+    function initMap() {
+
+
+
+
+      var mapDiv = document.getElementById("map");
+
+
+      var mapOptions = {
+        center : new google.maps.LatLng(39.2, -94.6),
+        zoom : 4,
+        mapTypeId : google.maps.MapTypeId.SATELLITE,
+        disableDefaultUI: true,
+        zoomControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+
+      };
+
+      var map = new google.maps.Map(mapDiv, mapOptions);
+
+
+      var denverMarkerOptions = {
+        position : new google.maps.LatLng(39.7, -105),
+        map : map,
+        draggable : false,
+      };
+
+      var denverMarker = new google.maps.Marker(denverMarkerOptions);
+
+
+      var albuquerqueMarkerOptions = {
+        position : new google.maps.LatLng(35.1, -106.6),
+        map : map,
+        draggable : false,
+
+      };
+
+      var albuquerqueMarker = new google.maps.Marker(albuquerqueMarkerOptions);
+
+      var saltLakeCityMarkerOptions = {
+        position : new google.maps.LatLng(40.75, -111.9),
+        map : map,
+        draggable : false,
+      };
+
+      var saltLakeCityMarker = new google.maps.Marker(saltLakeCityMarkerOptions);
+
+
+      var denInfowindow = new google.maps.InfoWindow ( {
+        content : "Correct!  This is Denver.  Hard to figure it out without borders and geographic markers."
+      });
+      var albuquerqueInfowindow = new google.maps.InfoWindow ( {
+        content : "Nu-uh...this is Albuquerque.  Not even close."
+      });
+      var saltLakeCityInfowindow = new google.maps.InfoWindow ( {
+        content : "Nope, this is Salt Lake City."
+      });
+
+      // And add it to our Minneapolis marker
+      denverMarker.addListener("click", function() {
+        denInfowindow.open(map, denverMarker);
+      });
+      saltLakeCityMarker.addListener("click", function() {
+        saltLakeCityInfowindow.open(map, saltLakeCityMarker);
+      });
+      albuquerqueMarker.addListener("click", function() {
+        albuquerqueInfowindow.open(map, albuquerqueMarker);
+      });
+
+
+
+    }
+
+  </script>
+
+</head>
+<body>
+
+<h1>Which one of these cities is Denver?  Click on it!<br>You can only view it in satellite view, and you cannot zoom in.</h1>
+
+<div id="map"></div>
+
+</body>
+</html>

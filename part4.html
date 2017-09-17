@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Move</title>
+
+  <style>
+
+    #canvas {
+      border: 1px black solid;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+<P>This is using the mouse move event</P>
+<canvas id="canvas" height="800" width="1600"></canvas>
+
+<script>
+
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext("2d");
+
+  canvas.addEventListener("mousemove", drawCircle);
+  var x = event.offsetX;
+  var y = event.offsetY;
+
+  function drawCircle(){
+    var xco = event.offsetX;
+    var yco = event.offsetY;
+
+          context.fillStyle="#0C535E";
+          context.beginPath();
+          context.arc(xco, yco, 10, 0, 2 * Math.PI);
+          context.stroke();
+          context.fill();
+  }
+
+</script>
+
+</body>
+</html>
