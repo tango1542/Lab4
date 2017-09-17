@@ -12,11 +12,11 @@
   </style>
 
   <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVHRfP2CNHxDRWT7tWMgYBXm7ns-hQLB8&callback=initMap">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVHRfP2CNHxDRWT7tWMgYBXm7ns-hQLB8&callback=initMap">  //This is my link to google maps with my own API key
   </script>
 
   <script>
-    function initMap() {
+    function initMap() {  //This is the function that starts the whole map drawing.
 
 
 
@@ -24,12 +24,12 @@
       var mapDiv = document.getElementById("map");
 
 
-      var mapOptions = {
+      var mapOptions = {    //These are the map display options.  It is convenient to locate this section right after initializing the map.
         center : new google.maps.LatLng(39.2, -94.6),
         zoom : 4,
-        mapTypeId : google.maps.MapTypeId.SATELLITE,
+        mapTypeId : google.maps.MapTypeId.SATELLITE,  //This sets the view to the satellite view.
         disableDefaultUI: true,
-        zoomControl: false,
+        zoomControl: false,         //These three options, zoomControl, scrollwheel, and disableDoubleClickZoom all are mapOptions settings that ensure that the user will not be able to zoom in to try to cheat.
         scrollwheel: false,
         disableDoubleClickZoom: true
 
@@ -38,13 +38,13 @@
       var map = new google.maps.Map(mapDiv, mapOptions);
 
 
-      var denverMarkerOptions = {
+      var denverMarkerOptions = {    //These are the coordinates for Denver, and the properties of the marker.
         position : new google.maps.LatLng(39.7, -105),
         map : map,
         draggable : false,
       };
 
-      var denverMarker = new google.maps.Marker(denverMarkerOptions);
+      var denverMarker = new google.maps.Marker(denverMarkerOptions);  //This section actually calls the marker.
 
 
       var albuquerqueMarkerOptions = {
@@ -64,7 +64,7 @@
 
       var saltLakeCityMarker = new google.maps.Marker(saltLakeCityMarkerOptions);
 
-
+//This section below defines what messages happen when the click event occurs on certain markers.
       var denInfowindow = new google.maps.InfoWindow ( {
         content : "Correct!  This is Denver.  Hard to figure it out without borders and geographic markers."
       });
@@ -93,6 +93,7 @@
   </script>
 
 </head>
+<!-- This is where all of the actual display of the website occurs....all the way at the bottom of the html page. -->
 <body>
 
 <h1>Which one of these cities is Denver?  Click on it!<br>You can only view it in satellite view, and you cannot zoom in.</h1>

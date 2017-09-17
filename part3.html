@@ -17,31 +17,28 @@
 
 <h2>Part 3 - Moving Circle</h2>
 
-<!--The canvas element. Set height and width, and give it an id -->
-<canvas id="canvas" height="600" width="1000"></canvas>
+<canvas id="canvas" height="600" width="1000"></canvas>  <!-- This sets the size of the canvas. -->
+
 
 <script>
 
   //Find the canvas element in this document
   var canvas = document.getElementById("canvas");
-  // A context object will be used to draw on the canvas
+
   var context = canvas.getContext("2d");
 
-  context.fillStyle = '#08535F';
+  context.fillStyle = '#08535F'; //Changed the color to an aqua fill style
 
 var circleShowing = false;
-var xco = 50;
-var yco = 50;
-  // setInterval - do a task repeatedly. Specify a task to do, like the function name to call,
-  // and the time between repeats in milliseconds. 1000 milliseconds == 1 seconds.
-  // setInterval( nameOfFunction, timeBetweenCallingFunctionInMs )
-  // drawCircle();
-  setInterval(drawCircle, 50); //50 is the interval in milliseconds
+var xco = 50;  //set xco as the x coordinate variable.  Iniitializing the variables here.  I had alot of trouble with this becaue I originally kept trying to initialize them within the drawCircle function.
+var yco = 50;  //set yco as the y coordinate variable
+
+  setInterval(drawCircle, 50);  //50 is the interval in milliseconds
 
   function drawCircle() {
 
     if (circleShowing) {
-      context.clearRect(0, 0, 1000, 600);
+      context.clearRect(0, 0, 1000, 600);  //Need to change this parameter that clears the canvas to the same size as the canvas
       circleShowing = false;
     } else {
       context.fillStyle="#48C8DC";
@@ -49,8 +46,8 @@ var yco = 50;
       context.arc(xco, yco, 50, 0, 2 * Math.PI);  // Whole circle...xco is x coordinate, yco is y coordinate, 50 is the circle size, 0 is what part of the circle it starts in, the rest is the pi calculation
       context.stroke();
       context.fill();
-      xco = xco+=10;
-      yco = yco+=5.75;
+      xco = xco+=10;  //This changes the value of the x coordinate each time it is performed.
+      yco = yco+=5.75; //This changes the value of the y coordinate each time it is performed.
       circleShowing = true
     }
   }

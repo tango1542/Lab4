@@ -15,8 +15,7 @@
 </head>
 <body>
 
-<canvas id="canvas" height="600" width="1000"></canvas>
-
+<canvas id="canvas" height="600" width="1000"></canvas>   <!-- This sets the canvas size on the screen  -->
 <script>
 
 // Drawing two rectangles
@@ -88,7 +87,6 @@
 
 
 // circles
-
   context.beginPath();
   context.arc(600, 400, 50, 0, 2 * Math.PI);
   context.stroke();
@@ -105,14 +103,15 @@
   context.arc(600, 400, 90, 0, 2 * Math.PI);
   context.stroke();
 
+// This is printing text, the same text, 3 times.
   context.font="35px Arial";
-  context.fillStyle = "#0000FF";
+  context.fillStyle = "#0000FF";  // This one is blue.
   context.fillText("Hello World", 150, 150);
   context.font="35px Arial";
-  context.fillStyle = "#00FFFF";
+  context.fillStyle = "#00FFFF";  // This one is aqua colored
   context.fillText("Hello World", 175, 125);
   context.font="35px Arial";
-  context.fillStyle = "#FFFF00";
+  context.fillStyle = "#FFFF00";  // This one is yellow.
   context.fillText("Hello World", 200, 100);
 
 

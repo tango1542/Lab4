@@ -17,22 +17,22 @@
 
 
 <P>This is using the mouse move event</P>
-<canvas id="canvas" height="800" width="1600"></canvas>
+<canvas id="canvas" height="800" width="1600"></canvas> <!-- This is setting the size of the canvas. -->
 
 <script>
 
   var canvas = document.getElementById("canvas");
   var context = canvas.getContext("2d");
 
-  canvas.addEventListener("mousemove", drawCircle);
+  canvas.addEventListener("mousemove", drawCircle);  //The mousemove event performs the drawCircle function whenever the mousemove event is triggered...which is pretty frequently if the mouse is moving at all.
   var x = event.offsetX;
   var y = event.offsetY;
 
   function drawCircle(){
-    var xco = event.offsetX;
+    var xco = event.offsetX;  //This gets the location of the x and y coordinates of the event, which in this case, would be the mouse's new coordinates.
     var yco = event.offsetY;
 
-          context.fillStyle="#0C535E";
+          context.fillStyle="#0C535E";  //This snipped draws the circle, and fills it with this aqua color.
           context.beginPath();
           context.arc(xco, yco, 10, 0, 2 * Math.PI);
           context.stroke();
