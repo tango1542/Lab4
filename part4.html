@@ -17,7 +17,8 @@
 
 
 <P>This is using the mouse move event</P>
-<canvas id="canvas" height="800" width="1600"></canvas> <!-- This is setting the size of the canvas. -->
+<canvas id="canvas" height="400" width="800"></canvas> <!-- This is setting the size of the canvas. -->
+<p><button onclick="clearAll()"> Clear the Screen </button></p>  <!--Used this link on stack to learn how to draw a rectange over the canvas -->
 
 <script>
 
@@ -38,6 +39,12 @@
           context.stroke();
           context.fill();
   }
+  function clearAll() {  //https://stackoverflow.com/questions/36902997/html5-canvas-proper-way-to-create-a-clear-canvas-button
+    context.beginPath();
+    context.rect(0,0,canvas.width,canvas.height);
+    context.fillStyle = "#FFF";
+    context.fill();
+}
 
 </script>
 
