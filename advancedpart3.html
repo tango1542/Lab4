@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map Game with Google Maps</title>
+
+  <style>
+    #map {
+      height: 800px;
+      width: 1000px;
+    }
+  </style>
+
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVHRfP2CNHxDRWT7tWMgYBXm7ns-hQLB8&callback=initMap">  //This is my link to google maps with my own API key
+  </script>
+
+  <script>
+    function initMap() {  //This is the function that starts the whole map drawing.
+
+
+
+
+      var mapDiv = document.getElementById("map");
+
+
+      var mapOptions = {    //These are the map display options.  It is convenient to locate this section right after initializing the map.
+        center : new google.maps.LatLng(39.2, -94.6),
+        zoom : 4,
+        mapTypeId : google.maps.MapTypeId.SATELLITE,  //This sets the view to the satellite view.
+        disableDefaultUI: true,
+        zoomControl: false,         //These three options, zoomControl, scrollwheel, and disableDoubleClickZoom all are mapOptions settings that ensure that the user will not be able to zoom in to try to cheat.
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+
+      };
+
+      var map = new google.maps.Map(mapDiv, mapOptions);
+
+
+      var denverMarkerOptions = {    //These are the coordinates for Denver, and the properties of the marker.
+        position : new google.maps.LatLng(39.7, -105),
+        map : map,
+        draggable : false,
+      };
+      var denverMarker = new google.maps.Marker(denverMarkerOptions);  //This section actually calls the marker.
+
+
+      var albuquerqueMarkerOptions = {
+        position : new google.maps.LatLng(35.1, -106.6),
+        map : map,
+        draggable : false,
+      };
+      var albuquerqueMarker = new google.maps.Marker(albuquerqueMarkerOptions);
+
+      var saltLakeCityMarkerOptions = {
+        position : new google.maps.LatLng(40.75, -111.9),
+        map : map,
+        draggable : false,
+      };
+      var saltLakeCityMarker = new google.maps.Marker(saltLakeCityMarkerOptions);
+
+//This section below defines what messages happen when the click event occurs on certain markers.
+      var denInfowindow = new google.maps.InfoWindow ( {
+        content : "Correct!  This is Denver.  Hard to figure it out without borders and geographic markers."
+      });
+      var albuquerqueInfowindow = new google.maps.InfoWindow ( {
+        content : "Nu-uh...this is Albuquerque.  Not even close."
+      });
+      var saltLakeCityInfowindow = new google.maps.InfoWindow ( {
+        content : "Nope, this is Salt Lake City."
+      });
+
+      var score = 0; //setting up the user's score
+
+
+
+
+
+      denverMarker.addListener("click", function() {
+        score +=1;
+        denverMarker.setMap(null);
+        saltLakeCityMarker.setMap(null);
+        albuquerqueMarker.setMap(null);
+          });
+      saltLakeCityMarker.addListener("click", function() {
+         score +=0;
+         denverMarker.setMap(null);
+         saltLakeCityMarker.setMap(null);
+         albuquerqueMarker.setMap(null);
+         });
+     albuquerqueMarker.addListener("click", function() {
+         score +=0;
+         denverMarker.setMap(null);
+         saltLakeCityMarker.setMap(null);
+         albuquerqueMarker.setMap(null);
+           // albuquerqueInfowindow.open(map, albuquerqueMarker);
+         });
+      document.getElementById("cityQuestion");
+      cityQuestion.innerHTML="Which one of these cities is Pittsburgh?";
+
+        var pittsburghMarkerOptions = {    //These are the coordinates for Denver, and the properties of the marker.
+          position : new google.maps.LatLng(40.44, -80),
+          map : map,
+          draggable : false,
+        };
+        var pittsburghMarker = new google.maps.Marker(pittsburghMarkerOptions);  //This section actually calls the marker.
+
+
+        var columbusMarkerOptions = {
+          position : new google.maps.LatLng(39.96, -83),
+          map : map,
+          draggable : false,
+        };
+        var columbusMarker = new google.maps.Marker(columbusMarkerOptions);
+
+        var cincinnatiMarkerOptions = {
+          position : new google.maps.LatLng(39.1, -84.51),
+          map : map,
+          draggable : false,
+        };
+        var cincinnatiMarker = new google.maps.Marker(cincinnatiMarkerOptions);
+
+
+
+        // denInfowindow.open(map, denverMarker);
+        // document.getElementById("hScore");
+        // score +=1
+        // hScore.innerHTML="Correct.  Your score total is " + score;
+        // denverMarker.setMap(null);
+        // saltLakeCityMarker.setMap(null);
+        // albuquerqueMarker.setMap(null);
+
+
+
+  //     // google.maps.event.addListener(denInfowindow, 'closeclick', function() {
+  //     //   score +=1;
+   //
+  //       document.getElementById("hScore");
+  //       hScore.innerHTML="Good job, your score is now " + score;
+  //       denverMarker.setMap(null);
+  //  });
+
+
+      //   saltLakeCityInfowindow.open(map, saltLakeCityMarker);
+      // });
+
+
+
+
+    }
+  </script>
+
+</head>
+<!-- This is where all of the actual display of the website occurs....all the way at the bottom of the html page. -->
+<body>
+
+<h1>OK, let's play a game!</hi><h2>Pick the correct city on the map and get a point.<br>You can only view it in satellite view, and you cannot zoom in.</h2>
+<h3 id= "cityQuestion">Which one of these cities is Denver?</h3>
+<h4>Score</h4
+<h4 id= "hScore"></h4>
+
+
+<div id="map"></div>
+
+</body>
+</html>
